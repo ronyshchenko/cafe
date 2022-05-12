@@ -1,0 +1,16 @@
+DELETE FROM currencies
+WHERE id = 6;
+
+
+DELETE FROM Customers
+WHERE id = 1000000006;
+
+DELETE FROM Vendors
+WHERE id = 1006;
+
+DELETE FROM Workers
+WHERE id = 1012;
+
+DELETE FROM Positions
+ WHERE id = 107;
+

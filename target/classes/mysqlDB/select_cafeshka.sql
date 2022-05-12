@@ -1,4 +1,4 @@
-SELECT id, price, name
+SELECT id, name, price 
 FROM products
 WHERE price=30 AND id='101';
 
@@ -9,9 +9,9 @@ SELECT price, name
 FROM products
 WHERE id IN ('101','102');
 
-SELECT *
-FROM orderitems
-WHERE itemprice BETWEEN 7 AND 15;
+ SELECT *
+ FROM invoices
+ WHERE volume BETWEEN 2000 AND 5000;
 
 
 
@@ -19,19 +19,18 @@ SELECT name
 FROM products
 ORDER BY name;
 
-SELECT custid, COUNT(*) AS orders
-FROM orders
-GROUP BY custid;
-
+SELECT date, SUM(volume) as sum 
+FROM invoices 
+GROUP BY date;
 
 
 SELECT vendors.name, products.name, products.price
 FROM vendors INNER JOIN products
 ON vendors.id = products.vendid;
 
-SELECT financeoperations.num, financeoperations.date, currency.name
-FROM financeoperations INNER JOIN currency
-ON financeoperations.currencyid = currency.id;
+SELECT payments.id, payments.debt, currencies.name
+FROM payments INNER JOIN currencies
+ON payments.currencyid = currencies.id;
 
 SELECT customers.name, orders.date
 FROM orders INNER JOIN customers
