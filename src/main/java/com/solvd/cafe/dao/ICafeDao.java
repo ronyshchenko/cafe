@@ -2,13 +2,16 @@ package com.solvd.cafe.dao;
 
 import com.solvd.cafe.models.CafeModel;
 
+import java.util.List;
+
 public interface ICafeDao {
 
-    void create(int id,String address,String email,String name, String site);
+    void createCafe(CafeModel cafeModel);
 
-    void update(String appointmentDate,int id);
+    void updateCafe(int id, String name);
 
-    int delete(int id);
+    void deleteCafeById(int id);
 
-    CafeModel getCafeByName(String name);
+    List<CafeModel> getCafeById(int id);
+
 }

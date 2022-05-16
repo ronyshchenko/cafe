@@ -1,7 +1,6 @@
 package com.solvd.cafe.models;
 
 public class CurrenciesModel {
-
     private int id;
     private String name;
 
@@ -27,5 +26,13 @@ public class CurrenciesModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "CurrenciesModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

@@ -78,4 +78,17 @@ public class OrdersModel {
     public void setCourierid(int courierid) {
         this.courierid = courierid;
     }
+
+    @Override
+    public String toString() {
+        return "OrdersModel{" +
+                "id=" + id +
+                ", date='" + date + '\'' +
+                ", custid=" + custid +
+                ", cashierid=" + cashierid +
+                ", prodid=" + prodid +
+                ", quantity=" + quantity +
+                ", courierid=" + courierid +
+                '}';
+    }
 }

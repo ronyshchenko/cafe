@@ -1,14 +1,19 @@
 package com.solvd.cafe.dao;
 
 import com.solvd.cafe.models.CategoriesProdModel;
+import com.solvd.cafe.models.CurrenciesModel;
+
+import java.util.List;
 
 public interface ICategoriesProdDao {
 
-    void createCategoriesProd(int id,String description,String name);
 
-    void updateCategoriesProd(int id,String description,String name);
+    void createCategoriesProd(CategoriesProdModel categoriesProdModel);
+
+    void updateCategoriesProd(int id, String name);
 
     void deleteCategoriesProdById(int id);
 
-    CategoriesProdModel getCategoriesProdId(int id);
+    List<CategoriesProdModel> getCategoriesProdId(int id);
+
 }

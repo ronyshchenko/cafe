@@ -57,4 +57,15 @@ public class CafeModel {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "CafeModel{" +
+                "id=" + id +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", site='" + site + '\'' +
+                '}';
+    }
 }

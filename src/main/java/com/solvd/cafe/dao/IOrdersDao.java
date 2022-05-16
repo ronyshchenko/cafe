@@ -2,13 +2,16 @@ package com.solvd.cafe.dao;
 
 import com.solvd.cafe.models.OrdersModel;
 
+import java.util.List;
+
 public interface IOrdersDao {
 
-    void createOrders(int id,int cashierid, int courierid, int custid, String date, int prodId, int cuantity);
+    void createOrders(OrdersModel ordersModel);
 
-    void updateOrders(int id,int cashierid, int courierid, int custid, String date, int prodId, int cuantity);
+
+    void updateOrders(int id, int quantity);
 
     void deleteOrdersById(int id);
 
-    OrdersModel getOrdersById(int id);
+    List<OrdersModel> getOrdersById(int id);
 }
