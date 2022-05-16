@@ -2,11 +2,13 @@ package com.solvd.cafe.dao.jdbcMySQLImpl;
 
 import com.solvd.cafe.Util.DataBaseConnection;
 import com.solvd.cafe.dao.ICategoriesProdDao;
+import com.solvd.cafe.models.CafeModel;
 import com.solvd.cafe.models.CategoriesProdModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CategoriesProdDao implements ICategoriesProdDao {
@@ -67,45 +69,28 @@ public class CategoriesProdDao implements ICategoriesProdDao {
         }
     }
 
-//    @Override
-//    public List<OrdersModel> getOrdersById(int id) {
-//        try (Connection con = DataBaseConnection.getConnection()) {
-//            PreparedStatement statement = con.prepareStatement(getStatement);
-//            statement.setInt(1, id);
-//            ResultSet result = statement.executeQuery();
-//            ArrayList<OrdersModel> ordersModels = new ArrayList<OrdersModel>();
-//            while (result.next()) {
-//                id = result.getInt(1);
-//                String date = result.getString(2);
-//                int custid = result.getInt(3);
-//                int cashierid = result.getInt(4);
-//                int prodid = result.getInt(5);
-//                int quantity = result.getInt(6);
-//                int courierid = result.getInt(7);
-//                OrdersModel ordersModel = new OrdersModel(id, cashierid, courierid,
-//                        custid, date, prodid, quantity);
-//                ordersModels.add(ordersModel);
-//                ordersModel.toString();
-//                LOGGER.info(ordersModel.toString());
-//            }
-//            LOGGER.info("ALL is OK!");
-//            return ordersModels;
-//        } catch (Exception e) {
-//            LOGGER.info(e);
-//        }
-//        return null;
-//    }
-//
-
-
-
-
-
-
     @Override
     public List<CategoriesProdModel> getCategoriesProdId(int id) {
+        try (Connection con = DataBaseConnection.getConnection()) {
+            PreparedStatement statement = con.prepareStatement(getStatement);
+            statement.setInt(1, id);
+            ResultSet result = statement.executeQuery();
+            ArrayList<CategoriesProdModel> categoriesProdModels = new ArrayList<CategoriesProdModel>();
+            while (result.next()) {
+                id = result.getInt(1);
+                String name = result.getString(2);
+                String description = result.getString(3);
+                CategoriesProdModel categoriesProdModel = new CategoriesProdModel(id, name, description);
+                categoriesProdModels.add(categoriesProdModel);
+                categoriesProdModel.toString();
+                LOGGER.info(categoriesProdModel.toString());
+            }
+            LOGGER.info("ALL is OK!");
+            return categoriesProdModels;
+        } catch (Exception e) {
+            LOGGER.info(e);
+        }
         return null;
     }
-
 
 }

@@ -1,14 +1,17 @@
 package com.solvd.cafe.dao;
 
+import com.solvd.cafe.models.CustomersModel;
 import com.solvd.cafe.models.InvoicesModel;
+
+import java.util.List;
 
 public interface IInvoicesDao {
 
-    void createInvoices(int id, String date, String description, int receiverid, int volume);
+    void createInvoices(InvoicesModel invoicesModel);
 
-    void updateInvoices(int id, String date, String description, int receiverid, int volume);
+    void updateInvoices(int id, int volume);
 
     void deleteInvoicesId(int id);
 
-    InvoicesModel getInvoicesById(int id);
+    List<InvoicesModel> getInvoicesById(int id);
 }

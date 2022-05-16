@@ -1,13 +1,16 @@
 package com.solvd.cafe.dao;
+import com.solvd.cafe.models.CafeModel;
 import com.solvd.cafe.models.PaimentsModel;
+
+import java.util.List;
 
 public interface IPaimentsDao {
 
-    void createPaiments(int id, int accountantid, int currencyid, int debt, int invoiceid, int volumefact);
+    void createPaiments(PaimentsModel paimentsModel);
 
-    void updatePaiments(int id, int accountantid, int currencyid, int debt, int invoiceid, int volumefact);
+    void updatePaiments(int id, int volumefact);
 
     void deletePaimentsById(int id);
 
-    PaimentsModel getPaimentsById(int id);
+    List<PaimentsModel> getPaimentsById(int id);
 }

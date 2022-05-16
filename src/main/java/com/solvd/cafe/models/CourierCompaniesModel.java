@@ -60,4 +60,15 @@ public class CourierCompaniesModel {
     public void setSite(String site) {
         this.site = site;
     }
+
+    @Override
+    public String toString() {
+        return "CourierCompaniesModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", site='" + site + '\'' +
+                '}';
+    }
 }

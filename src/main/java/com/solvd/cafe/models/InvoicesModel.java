@@ -59,4 +59,15 @@ public class InvoicesModel {
     public void setVolume(int volume) {
         this.volume = volume;
     }
+
+    @Override
+    public String toString() {
+        return "InvoicesModel{" +
+                "id=" + id +
+                ", date='" + date + '\'' +
+                ", receiverid=" + receiverid +
+                ", description='" + description + '\'' +
+                ", volume=" + volume +
+                '}';
+    }
 }

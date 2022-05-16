@@ -1,6 +1,6 @@
 package com.solvd.cafe.models;
 
-public abstract class PaimentsModel {
+public class PaimentsModel {
 
     private int id;
     private int invoiceid;
@@ -67,5 +67,17 @@ public abstract class PaimentsModel {
 
     public void setDebt(int debt) {
         this.debt = debt;
+    }
+
+    @Override
+    public String toString() {
+        return "PaimentsModel{" +
+                "id=" + id +
+                ", invoiceid=" + invoiceid +
+                ", currencyid=" + currencyid +
+                ", accountantid=" + accountantid +
+                ", volumefact=" + volumefact +
+                ", debt=" + debt +
+                '}';
     }
 }

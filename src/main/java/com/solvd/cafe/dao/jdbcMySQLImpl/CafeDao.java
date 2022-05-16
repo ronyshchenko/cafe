@@ -75,7 +75,7 @@ public class CafeDao implements ICafeDao {
             PreparedStatement statement = con.prepareStatement(getStatement);
             statement.setInt(1, id);
             ResultSet result = statement.executeQuery();
-            ArrayList<CafeModel> currenciesModels = new ArrayList<CafeModel>();
+            ArrayList<CafeModel> cafeModels = new ArrayList<CafeModel>();
             while (result.next()) {
                 id = result.getInt(1);
                 String name = result.getString(2);
@@ -83,12 +83,12 @@ public class CafeDao implements ICafeDao {
                 String site = result.getString(4);
                 String email = result.getString(5);
                 CafeModel cafeModel = new CafeModel(id, name, address, site, email);
-                currenciesModels.add(cafeModel);
+                cafeModels.add(cafeModel);
                 cafeModel.toString();
                 LOGGER.info(cafeModel.toString());
             }
             LOGGER.info("ALL is OK!");
-            return currenciesModels;
+            return cafeModels;
         } catch (Exception e) {
             LOGGER.info(e);
         }

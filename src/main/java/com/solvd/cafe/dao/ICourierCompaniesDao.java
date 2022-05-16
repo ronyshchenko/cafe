@@ -1,13 +1,16 @@
 package com.solvd.cafe.dao;
 
+import com.solvd.cafe.models.CourierCompaniesModel;
 import com.solvd.cafe.models.CouriersModel;
 
-public interface ICourierCompaniesDao {
-    void createCourierCompanies(int id,String address,String name, String email, String site);
+import java.util.List;
 
-    void updateCourierCompanies(int id,String address,String name, String email, String site);
+public interface ICourierCompaniesDao {
+    void createCourierCompanies(CourierCompaniesModel courierCompanies);
+
+    void updateCourierCompanies(int id, String name);
 
     void deleteCourierCompaniesById(int id);
 
-    CouriersModel getCourierCompaniesById(int id);
+    List<CourierCompaniesModel> getCourierCompaniesById(int id);
 }

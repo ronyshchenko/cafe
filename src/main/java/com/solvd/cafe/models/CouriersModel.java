@@ -11,7 +11,7 @@ public class CouriersModel {
     public CouriersModel() {
     }
 
-    public CouriersModel(int id, int companyid, String name, String phone, String surname) {
+    public CouriersModel(int id, String name, String surname, String phone, int companyid) {
         this.id = id;
         this.companyid = companyid;
         this.name = name;
@@ -57,5 +57,16 @@ public class CouriersModel {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    @Override
+    public String toString() {
+        return "CouriersModel{" +
+                "id=" + id +
+                ", companyid=" + companyid +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';
     }
 }

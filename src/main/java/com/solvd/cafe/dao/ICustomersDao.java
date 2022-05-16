@@ -1,15 +1,18 @@
 package com.solvd.cafe.dao;
 
+import com.solvd.cafe.models.CafeModel;
 import com.solvd.cafe.models.CustomersModel;
+
+import java.util.List;
 
 public interface ICustomersDao {
 
-    void createCustomers(int id,String address,String city, String email, String name);
+    void createCustomers(CustomersModel customersModel);
 
-    void updateCustomers(int id,String address,String city, String email, String name);
+    void updateCustomers(int id, String name);
 
     void deleteCustomersById(int id);
 
-    CustomersModel getCustomersById(int id);
+    List<CustomersModel> getCustomersById(int id);
 
 }
