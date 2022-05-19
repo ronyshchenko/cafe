@@ -1,14 +1,18 @@
 package com.solvd.cafe.dao;
 
+import com.solvd.cafe.models.PositionsModel;
 import com.solvd.cafe.models.ProductsModel;
+
+import java.util.List;
 
 public interface IProductsDao {
 
-    void createProducts(int id, int categoryId, String description, String name, int price, int reciprId, int vendId);
+    void createProducts(ProductsModel productsModel);
 
-    void updateProducts(int id, int categoryId, String description, String name, int price, int reciprId, int vendId);
+    void updateProducts(int id, String name);
 
     void deleteProductsById(int id);
 
-    ProductsModel getProductsByid(int id);
+    List<ProductsModel> getProductsByid(int id);
+
 }

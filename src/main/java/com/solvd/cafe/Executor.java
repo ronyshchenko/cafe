@@ -86,5 +86,22 @@ public class Executor {
         //paimentsDao.updatePaiments(2,777);
         //paimentsDao.getPaimentsById(2);
         //paimentsDao.deletePaimentsById(2);
+
+        //Working with PositionsModel
+        //PositionsModel positionsModel = new PositionsModel(108, "test", "test", 20002, 1);
+        //PositionsDao positionsDao = new PositionsDao();
+        //positionsDao.createPositions(positionsModel);
+        //positionsDao.updatePositions(108,777);
+        //positionsDao.getPositionsById(108);
+        //positionsDao.deletePositionsById(108);
+
+        //Working with ProductsModel
+//        ProductsModel productsModel = new ProductsModel(107, 1006, "test", 202, "test", 15, 1005);
+//        ProductsDao productsDao = new ProductsDao();
+//        productsDao.createProducts(productsModel);
+        //positionsDao.updatePositions(108,777);
+        //positionsDao.getPositionsById(108);
+        //positionsDao.deletePositionsById(108);
+
     }
 }

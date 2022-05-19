@@ -58,4 +58,15 @@ public class PositionsModel {
     public void setCafeid(int cafeid) {
         this.cafeid = cafeid;
     }
+
+    @Override
+    public String toString() {
+        return "PositionsModel{" +
+                "id=" + id +
+                ", namepositions='" + namepositions + '\'' +
+                ", namedepart='" + namedepart + '\'' +
+                ", salary=" + salary +
+                ", cafeid=" + cafeid +
+                '}';
+    }
 }

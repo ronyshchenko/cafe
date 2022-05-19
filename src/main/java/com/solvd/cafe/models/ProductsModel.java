@@ -78,4 +78,17 @@ public class ProductsModel {
     public void setCategoryid(int categoryid) {
         this.categoryid = categoryid;
     }
+
+    @Override
+    public String toString() {
+        return "ProductsModel{" +
+                "id=" + id +
+                ", vendid=" + vendid +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", recipeid=" + recipeid +
+                ", categoryid=" + categoryid +
+                '}';
+    }
 }
