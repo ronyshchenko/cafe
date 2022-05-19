@@ -18,6 +18,7 @@ public class PositionsDao implements IPositionsDao {
     final String getStatement = "SELECT * FROM positions WHERE id = ?";
     final String insertStatementS = "INSERT INTO positions VALUES (?, ?, ?, ?, ?)";
     final String updateStatementS = "UPDATE positions SET salary=? WHERE id=?";
+    PreparedStatement stmt = null;
 
 
 

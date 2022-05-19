@@ -19,6 +19,7 @@ public class InvoicesDao implements IInvoicesDao {
     final String getStatement = "SELECT * FROM invoices WHERE id = ?";
     final String insertStatementS = "INSERT INTO invoices VALUES (?, ?, ?, ?, ?)";
     final String updateStatementS = "UPDATE invoices SET volume=? WHERE id=?";
+    PreparedStatement stmt = null;
 
 
 

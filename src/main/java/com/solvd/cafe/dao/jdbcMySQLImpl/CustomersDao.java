@@ -18,6 +18,7 @@ public class CustomersDao implements ICustomersDao {
     final String getStatement = "SELECT * FROM customers WHERE id = ?";
     final String insertStatementS = "INSERT INTO customers VALUES (?, ?, ?, ?, ?)";
     final String updateStatementS = "UPDATE customers SET name=? WHERE id=?";
+    PreparedStatement stmt = null;
 
     @Override
     public void createCustomers(CustomersModel customersModel) {

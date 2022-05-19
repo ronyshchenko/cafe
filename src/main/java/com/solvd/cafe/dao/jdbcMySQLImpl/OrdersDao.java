@@ -20,8 +20,7 @@ public class OrdersDao implements IOrdersDao {
     final String getStatement = "SELECT * FROM orders WHERE id = ?";
     final String insertStatementS = "INSERT INTO orders VALUES (?, ?, ?, ?, ?, ?, ?)";
     final String updateStatementS = "UPDATE orders SET quantity=? WHERE id=?";
-
-
+    PreparedStatement stmt = null;
 
     @Override
     public void createOrders(OrdersModel ordersModel) {

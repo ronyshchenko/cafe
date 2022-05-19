@@ -19,7 +19,7 @@ public class PaimentsDao implements IPaimentsDao {
     final String getStatement = "SELECT * FROM payments WHERE id = ?";
     final String insertStatementS = "INSERT INTO payments VALUES (?, ?, ?, ?, ?, ?)";
     final String updateStatementS = "UPDATE payments SET volumefact=? WHERE id=?";
-
+    PreparedStatement stmt = null;
 
 
     @Override

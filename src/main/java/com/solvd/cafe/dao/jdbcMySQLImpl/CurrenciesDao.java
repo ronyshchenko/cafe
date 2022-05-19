@@ -19,6 +19,7 @@ public class CurrenciesDao implements ICurrenciesDao {
     final String getStatement = "SELECT * FROM currencies WHERE id = ?";
     final String insertStatementS = "INSERT INTO currencies VALUES (?, ?)";
     final String updateStatementS = "UPDATE currencies SET name=? WHERE id=?";
+    PreparedStatement stmt = null;
 
     @Override
     public void createCurrencies(CurrenciesModel currenciesModel) {

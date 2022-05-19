@@ -16,13 +16,14 @@ public class CafeDao implements ICafeDao {
     final String getStatement = "SELECT * FROM cafe WHERE id = ?";
     final String insertStatementS = "INSERT INTO cafe VALUES (?, ?, ?, ?, ?)";
     final String updateStatementS = "UPDATE cafe SET name=? WHERE id=?";
+    PreparedStatement stmt = null;
 
 
     @Override
     public void createCafe(CafeModel cafeModel) {
-        try (Connection dbConnect = DataBaseConnection.getConnection()) {
-            System.out.println(dbConnect);
-            PreparedStatement stmt = dbConnect.prepareStatement(insertStatementS);
+        Connection dbConnect = DataBaseConnection.getConnection();
+        try {
+            stmt = dbConnect.prepareStatement(insertStatementS);
             stmt.setInt(1, cafeModel.getId());
             stmt.setString(2, cafeModel.getName());
             stmt.setString(3, cafeModel.getAddress());
@@ -32,25 +33,40 @@ public class CafeDao implements ICafeDao {
             LOGGER.info(i + " records inserted");
         } catch (Exception e) {
             LOGGER.info(e);
+        } finally {
+            try {
+                DataBaseConnection.close(dbConnect);
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     @Override
     public void updateCafe(int id, String name) {
-        try (Connection dbConnect = DataBaseConnection.getConnection()) {
-            PreparedStatement stmt = dbConnect.prepareStatement(updateStatementS);
+        Connection dbConnect = DataBaseConnection.getConnection();
+        try {
+            stmt = dbConnect.prepareStatement(updateStatementS);
             stmt.setString(1, name);
             stmt.setInt(2, id);
             int i = stmt.executeUpdate();
             LOGGER.info(i + " records updated");
         } catch (Exception e) {
             LOGGER.info(e);
+        } finally {
+            try {
+                DataBaseConnection.close(dbConnect);
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
     @Override
     public void deleteCafeById(int id) {
-        int x = 0;
         Connection dbConnect = DataBaseConnection.getConnection();
+        int x = 0;
         PreparedStatement deleteStatement = null;
         try {
             deleteStatement = dbConnect.prepareStatement(deleteStatementS);
@@ -71,10 +87,11 @@ public class CafeDao implements ICafeDao {
     }
     @Override
     public List<CafeModel> getCafeById(int id) {
-       try (Connection con = DataBaseConnection.getConnection()) {
-            PreparedStatement statement = con.prepareStatement(getStatement);
-            statement.setInt(1, id);
-            ResultSet result = statement.executeQuery();
+        Connection dbConnect = DataBaseConnection.getConnection();
+       try  {
+            stmt = dbConnect.prepareStatement(getStatement);
+            stmt.setInt(1, id);
+            ResultSet result = stmt.executeQuery();
             ArrayList<CafeModel> cafeModels = new ArrayList<CafeModel>();
             while (result.next()) {
                 id = result.getInt(1);
@@ -91,7 +108,14 @@ public class CafeDao implements ICafeDao {
             return cafeModels;
         } catch (Exception e) {
             LOGGER.info(e);
-        }
+        } finally {
+           try {
+               DataBaseConnection.close(dbConnect);
+               stmt.close();
+           } catch (SQLException e) {
+               e.printStackTrace();
+           }
+       }
         return null;
     }
 

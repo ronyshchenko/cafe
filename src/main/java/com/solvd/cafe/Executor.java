@@ -17,17 +17,17 @@ public class Executor {
         //CafeModel cafeModel = new CafeModel(2, "Domashnya kuhnya", "Khreshyatik 22",  "dk.com", "ors@mail.ru");
         //CafeDao cafeDao = new CafeDao();
         //cafeDao.createCafe(cafeModel);
-        //cafeDao.updateCafe(1,"Domashnyaya kuhnya");
+        //cafeDao.updateCafe(1,"Domashnyaya kuhnya1");
         //cafeDao.getCafeById(1);
         //cafeDao.deleteCafeById(2);
 
         //Working with CategoriesProdDao
         //CategoriesProdModel categoriesProdModel = new CategoriesProdModel(1007, "Alkohol Drink", "alkohol");
-        //CategoriesProdDao categoriesProdDao = new CategoriesProdDao();
+        CategoriesProdDao categoriesProdDao = new CategoriesProdDao();
         //categoriesProdDao.createCategoriesProd(categoriesProdModel);
-        //categoriesProdDao.updateCategoriesProd(1006,"Tea");
-        //categoriesProdDao.getCategoriesProdId(1007);
-        //categoriesProdDao.deleteCategoriesProdById(1007);
+        //categoriesProdDao.updateCategoriesProd(1006,"Tea2");
+        categoriesProdDao.getCategoriesProdId(1007);
+        categoriesProdDao.deleteCategoriesProdById(1007);
 
         //Working with CourierCompaniesDao
         //CourierCompaniesModel courierCompaniesModel = new CourierCompaniesModel(1007, "MyCourier", "test", "test", "test");

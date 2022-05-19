@@ -18,12 +18,14 @@ public class CategoriesProdDao implements ICategoriesProdDao {
     final String getStatement = "SELECT * FROM categoriesprod WHERE id = ?";
     final String insertStatementS = "INSERT INTO categoriesprod VALUES (?, ?, ?)";
     final String updateStatementS = "UPDATE categoriesprod SET name=? WHERE id=?";
+    PreparedStatement stmt = null;
 
 
     @Override
     public void createCategoriesProd(CategoriesProdModel categoriesProdModel) {
-        try (Connection dbConnect = DataBaseConnection.getConnection()) {
-            PreparedStatement stmt = dbConnect.prepareStatement(insertStatementS);
+        Connection dbConnect = DataBaseConnection.getConnection();
+        try {
+            stmt = dbConnect.prepareStatement(insertStatementS);
             stmt.setInt(1, categoriesProdModel.getId());
             stmt.setString(2, categoriesProdModel.getName());
             stmt.setString(3, categoriesProdModel.getDescription());
@@ -31,23 +33,39 @@ public class CategoriesProdDao implements ICategoriesProdDao {
             LOGGER.info(i + " records inserted");
         } catch (Exception e) {
             LOGGER.info(e);
+        }finally {
+            try {
+                DataBaseConnection.close(dbConnect);
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
     @Override
     public void updateCategoriesProd(int id, String name) {
-        try (Connection dbConnect = DataBaseConnection.getConnection()) {
-            PreparedStatement stmt = dbConnect.prepareStatement(updateStatementS);
+        Connection dbConnect = DataBaseConnection.getConnection();
+        try{
+            stmt = dbConnect.prepareStatement(updateStatementS);
             stmt.setInt(2, id);
             stmt.setString(1, name);
             int i = stmt.executeUpdate();
             LOGGER.info(i + " records updated");
         } catch (Exception e) {
             LOGGER.info(e);
+        }finally {
+            try {
+                DataBaseConnection.close(dbConnect);
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     @Override
     public void deleteCategoriesProdById(int id) {
+
     int x = 0;
         Connection dbConnect = DataBaseConnection.getConnection();
         PreparedStatement deleteStatement = null;
@@ -71,10 +89,11 @@ public class CategoriesProdDao implements ICategoriesProdDao {
 
     @Override
     public List<CategoriesProdModel> getCategoriesProdId(int id) {
-        try (Connection con = DataBaseConnection.getConnection()) {
-            PreparedStatement statement = con.prepareStatement(getStatement);
-            statement.setInt(1, id);
-            ResultSet result = statement.executeQuery();
+        Connection dbConnect = DataBaseConnection.getConnection();
+        try {
+            stmt = dbConnect.prepareStatement(getStatement);
+            stmt.setInt(1, id);
+            ResultSet result = stmt.executeQuery();
             ArrayList<CategoriesProdModel> categoriesProdModels = new ArrayList<CategoriesProdModel>();
             while (result.next()) {
                 id = result.getInt(1);
@@ -89,6 +108,13 @@ public class CategoriesProdDao implements ICategoriesProdDao {
             return categoriesProdModels;
         } catch (Exception e) {
             LOGGER.info(e);
+        }finally {
+            try {
+                DataBaseConnection.close(dbConnect);
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return null;
     }

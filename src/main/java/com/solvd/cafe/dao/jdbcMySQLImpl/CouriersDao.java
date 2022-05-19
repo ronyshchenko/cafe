@@ -21,11 +21,13 @@ public class CouriersDao implements ICouriersDao {
     final String getStatement = "SELECT * FROM couriers WHERE id = ?";
     final String insertStatementS = "INSERT INTO couriers VALUES (?, ?, ?, ?, ?)";
     final String updateStatementS = "UPDATE couriers SET name=? WHERE id=?";
+    PreparedStatement stmt = null;
 
 
     @Override
     public void createCouriers(CouriersModel couriersModel) {
-        try (Connection dbConnect = DataBaseConnection.getConnection()) {
+        Connection dbConnect = DataBaseConnection.getConnection();
+        try  {
             PreparedStatement stmt = dbConnect.prepareStatement(insertStatementS);
             stmt.setInt(1, couriersModel.getId());
             stmt.setString(2, couriersModel.getName());
@@ -40,7 +42,8 @@ public class CouriersDao implements ICouriersDao {
     }
     @Override
     public void updateCouriers(int id, String name) {
-        try (Connection dbConnect = DataBaseConnection.getConnection()) {
+        Connection dbConnect = DataBaseConnection.getConnection();
+        try{
             PreparedStatement stmt = dbConnect.prepareStatement(updateStatementS);
             stmt.setInt(2, id);
             stmt.setString(1, name);
@@ -53,10 +56,11 @@ public class CouriersDao implements ICouriersDao {
 
     @Override
     public List<CouriersModel> getCouriersById(int id) {
-        try (Connection con = DataBaseConnection.getConnection()) {
-            PreparedStatement statement = con.prepareStatement(getStatement);
-            statement.setInt(1, id);
-            ResultSet result = statement.executeQuery();
+        Connection dbConnect = DataBaseConnection.getConnection();
+        try {
+            stmt = dbConnect.prepareStatement(getStatement);
+            stmt.setInt(1, id);
+            ResultSet result = stmt.executeQuery();
             ArrayList<CouriersModel> couriersModels = new ArrayList<CouriersModel>();
             while (result.next()) {
                 id = result.getInt(1);
@@ -79,6 +83,7 @@ public class CouriersDao implements ICouriersDao {
 
     @Override
     public void deleteCouriersById(int id) {
+
         int x = 0;
         Connection dbConnect = DataBaseConnection.getConnection();
         PreparedStatement deleteStatement = null;
