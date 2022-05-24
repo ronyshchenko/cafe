@@ -28,7 +28,7 @@ public class CouriersDao implements ICouriersDao {
     public void createCouriers(CouriersModel couriersModel) {
         Connection dbConnect = DataBaseConnection.getConnection();
         try  {
-            PreparedStatement stmt = dbConnect.prepareStatement(insertStatementS);
+            stmt = dbConnect.prepareStatement(insertStatementS);
             stmt.setInt(1, couriersModel.getId());
             stmt.setString(2, couriersModel.getName());
             stmt.setString(3, couriersModel.getSurname());
@@ -38,6 +38,13 @@ public class CouriersDao implements ICouriersDao {
             LOGGER.info(i + " records inserted");
         } catch (Exception e) {
             LOGGER.info(e);
+        }finally {
+            try {
+                DataBaseConnection.close(dbConnect);
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
     @Override
@@ -51,6 +58,13 @@ public class CouriersDao implements ICouriersDao {
             LOGGER.info(i + " records updated");
         } catch (Exception e) {
             LOGGER.info(e);
+        }finally {
+            try {
+                DataBaseConnection.close(dbConnect);
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -77,6 +91,13 @@ public class CouriersDao implements ICouriersDao {
             return couriersModels;
         } catch (Exception e) {
             LOGGER.info(e);
+        }finally {
+            try {
+                DataBaseConnection.close(dbConnect);
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return null;
     }

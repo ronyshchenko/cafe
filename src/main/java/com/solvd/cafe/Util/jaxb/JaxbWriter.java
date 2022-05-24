@@ -12,7 +12,7 @@ import java.io.StringWriter;
 
 public class JaxbWriter {
     public static void main(String[] args) throws JAXBException {
-        String xmlFilePath = "src/main/resources/xml/fileWrite.xml";
+        String xmlFilePath = "d:/file.xml";
         Citizen citizen = new Citizen(1, "Roman", 25);
         File file = new File(xmlFilePath);
         StringWriter writer = new StringWriter();

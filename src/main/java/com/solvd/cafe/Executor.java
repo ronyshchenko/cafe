@@ -23,11 +23,11 @@ public class Executor {
 
         //Working with CategoriesProdDao
         //CategoriesProdModel categoriesProdModel = new CategoriesProdModel(1007, "Alkohol Drink", "alkohol");
-        CategoriesProdDao categoriesProdDao = new CategoriesProdDao();
+        //CategoriesProdDao categoriesProdDao = new CategoriesProdDao();
         //categoriesProdDao.createCategoriesProd(categoriesProdModel);
         //categoriesProdDao.updateCategoriesProd(1006,"Tea2");
-        categoriesProdDao.getCategoriesProdId(1007);
-        categoriesProdDao.deleteCategoriesProdById(1007);
+        //categoriesProdDao.getCategoriesProdId(1007);
+        //categoriesProdDao.deleteCategoriesProdById(1007);
 
         //Working with CourierCompaniesDao
         //CourierCompaniesModel courierCompaniesModel = new CourierCompaniesModel(1007, "MyCourier", "test", "test", "test");
@@ -38,9 +38,9 @@ public class Executor {
         //courierCompaniesDao.deleteCourierCompaniesById(1007);
 
         //Working with CourierDao
-        //CouriersModel couriersModel = new CouriersModel(1006, "MyCourier", "test", "test", 1006);
-        //CouriersDao couriersDao = new CouriersDao();
-        //couriersDao.createCouriers(couriersModel);
+        CouriersModel couriersModel = new CouriersModel(1006, "MyCourier", "test", "test", 1006);
+        CouriersDao couriersDao = new CouriersDao();
+        couriersDao.createCouriers(couriersModel);
         //couriersDao.updateCouriers(1006,"Tea");
         //couriersDao.getCouriersById(1006);
         //couriersDao.deleteCouriersById(1006);
