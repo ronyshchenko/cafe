@@ -22,19 +22,9 @@ public class Main {
 
         try {
             User user = mapper.readValue(new File("src/main/resources/user.json"), User.class);
-            System.out.println(user);
-
+            LOGGER.info(user);
         } catch (JsonGenerationException e) {
             e.printStackTrace();
-        } catch (JsonMappingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-
     }
-
-
-
-
 }
