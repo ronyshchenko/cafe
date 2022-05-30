@@ -14,9 +14,17 @@ public class Main {
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) throws IOException {
+        ObjectMapper om = new ObjectMapper();
+        File file = new File("src/main/resources/forWrite.json");
         UserBean userBean = new UserBean(1, "Petr", "Petrenko");
-        String resultJson = new ObjectMapper().writeValueAsString(userBean);
-        LOGGER.info(resultJson);
+
+        try {
+            if (!file.exists())
+            om.writeValue(file, userBean);
+            LOGGER.info("created!");
+        } catch (IOException e) {
+            LOGGER.error(e);
+        }
 
         ObjectMapper mapper = new ObjectMapper();
 
