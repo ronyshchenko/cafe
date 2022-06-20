@@ -16,6 +16,7 @@ public class CafeDao implements ICafeDao {
     final String getStatement = "SELECT * FROM cafe WHERE id = ?";
     final String insertStatementS = "INSERT INTO cafe VALUES (?, ?, ?, ?, ?)";
     final String updateStatementS = "UPDATE cafe SET name=? WHERE id=?";
+    final String updateStatementSMyBatis = "UPDATE cafe SET name=?  SET address=? SET site=? SET email=? WHERE id=?";
     PreparedStatement stmt = null;
 
 
@@ -63,6 +64,31 @@ public class CafeDao implements ICafeDao {
             }
         }
     }
+
+    @Override
+    public void updateCafeMyBatis(CafeModel cafeModel) {
+        Connection dbConnect = DataBaseConnection.getConnection();
+        try {
+            stmt = dbConnect.prepareStatement(updateStatementSMyBatis);
+            stmt.setString(1, cafeModel.getName());
+            stmt.setString(2, cafeModel.getAddress());
+            stmt.setString(3, cafeModel.getSite());
+            stmt.setString(4, cafeModel.getEmail());
+            stmt.setInt(2, cafeModel.getId());
+            int i = stmt.executeUpdate();
+            LOGGER.info(i + " records updated");
+        } catch (Exception e) {
+            LOGGER.info(e);
+        } finally {
+            try {
+                DataBaseConnection.close(dbConnect);
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     @Override
     public void deleteCafeById(int id) {
         Connection dbConnect = DataBaseConnection.getConnection();

@@ -2,7 +2,6 @@ package com.solvd.cafe.dao.jdbcMySQLImpl;
 
 import com.solvd.cafe.Util.DataBaseConnection;
 import com.solvd.cafe.dao.ICategoriesProdDao;
-import com.solvd.cafe.models.CafeModel;
 import com.solvd.cafe.models.CategoriesProdModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

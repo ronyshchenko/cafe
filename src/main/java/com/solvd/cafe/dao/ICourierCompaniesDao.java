@@ -1,7 +1,6 @@
 package com.solvd.cafe.dao;
 
 import com.solvd.cafe.models.CourierCompaniesModel;
-import com.solvd.cafe.models.CouriersModel;
 
 import java.util.List;
 

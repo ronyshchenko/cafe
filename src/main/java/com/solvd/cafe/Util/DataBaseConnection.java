@@ -8,7 +8,7 @@ import java.sql.*;
 
 public class DataBaseConnection {
     private static final Logger LOGGER = LogManager.getLogger(DataBaseConnection.class);
-    private static final String DRIVER = "db.drv_path";
+    private static final String DRIVER = "db.driver";
     private static final String DBURL = "db.url";
     private static final String USER = "db.username";
     private static final String PASS = "db.password";

@@ -10,6 +10,8 @@ public interface ICafeDao {
 
     void updateCafe(int id, String name);
 
+    void updateCafeMyBatis(CafeModel cafeModel);
+
     void deleteCafeById(int id);
 
     List<CafeModel> getCafeById(int id);

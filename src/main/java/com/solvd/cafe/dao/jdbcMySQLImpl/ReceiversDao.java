@@ -2,11 +2,6 @@ package com.solvd.cafe.dao.jdbcMySQLImpl;
 
 import com.solvd.cafe.dao.IReceiversDao;
 import com.solvd.cafe.models.ReceiversModel;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import java.sql.*;
-import java.util.ResourceBundle;
 
 public class ReceiversDao implements IReceiversDao {
     @Override

@@ -2,7 +2,6 @@ package com.solvd.cafe.dao.jdbcMySQLImpl;
 
 import com.solvd.cafe.Util.DataBaseConnection;
 import com.solvd.cafe.dao.IOrdersDao;
-import com.solvd.cafe.models.CurrenciesModel;
 import com.solvd.cafe.models.OrdersModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

@@ -1,7 +1,6 @@
 package com.solvd.cafe.dao;
 
 import com.solvd.cafe.models.CategoriesProdModel;
-import com.solvd.cafe.models.CurrenciesModel;
 
 import java.util.List;
 

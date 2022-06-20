@@ -5,9 +5,6 @@ import com.solvd.cafe.models.RecipiesModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.*;
-import java.util.ResourceBundle;
-
 public class RecipiesDao implements IRecipiesDao {
 
     private static final Logger LOGGER = LogManager.getLogger(RecipiesDao.class);

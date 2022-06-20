@@ -1,7 +1,5 @@
 package com.solvd.cafe.models;
 
-import java.util.List;
-
 public class CourierCompaniesModel {
 
     private int id;

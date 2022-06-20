@@ -1,6 +1,5 @@
 package com.solvd.cafe.dao;
 
-import com.solvd.cafe.models.PositionsModel;
 import com.solvd.cafe.models.ProductsModel;
 
 import java.util.List;

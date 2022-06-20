@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.solvd.cafe.dao.ICafeDao">
+
+    <resultMap id="cafeResultMap" type="CafeModel">
+        <id property="id" column="id" javaType="int"/>
+        <result property="address" column="address"/>
+        <result property="email" column="email"/>
+        <result property="name" column="name"/>
+        <result property="site" column="site"/>
+    </resultMap>
+
+    <select id="getCafeById" resultMap="cafeResultMap">
+        SELECT * FROM cafe WHERE id = #{id}
+    </select>
+
+    <delete id="deleteCafeById" parameterType="CafeModel">
+        DELETE FROM cafe WHERE id = #{id}
+    </delete>
+
+<!--    <insert id="saveEntity" useGeneratedKeys="true" keyProperty="id" parameterType="CafeModel">-->
+    <insert id="createCafe" useGeneratedKeys="true" parameterType="CafeModel">
+
+    INSERT INTO cafe (id, address, email, name, site) VALUES (#{id}, #{address}, #{email}, #{name}, #{site})
+    </insert>
+
+    <update id="updateCafeMyBatis" parameterType="CafeModel">
+        UPDATE cafe SET name = #{name}
+        WHERE id = #{id}
+    </update>
+</mapper>
+
+
+
+
+

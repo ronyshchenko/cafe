@@ -2,7 +2,6 @@ package com.solvd.cafe.dao.jdbcMySQLImpl;
 
 import com.solvd.cafe.Util.DataBaseConnection;
 import com.solvd.cafe.dao.IPaimentsDao;
-import com.solvd.cafe.models.InvoicesModel;
 import com.solvd.cafe.models.PaimentsModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,7 +9,6 @@ import org.apache.logging.log4j.Logger;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
 public class PaimentsDao implements IPaimentsDao {
 

@@ -5,9 +5,6 @@ import com.solvd.cafe.models.VendorsModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.*;
-import java.util.ResourceBundle;
-
 public class WorkersDao implements IWorkersDao {
 
     private static final Logger LOGGER = LogManager.getLogger(WorkersDao.class);

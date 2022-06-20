@@ -1,5 +1,4 @@
 package com.solvd.cafe.dao;
-import com.solvd.cafe.models.CafeModel;
 import com.solvd.cafe.models.PaimentsModel;
 
 import java.util.List;
