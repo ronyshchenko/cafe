@@ -1,6 +1,5 @@
 package com.solvd.cafe.patterns.factory;
 
-import com.solvd.cafe.patterns.builder.Currencies;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

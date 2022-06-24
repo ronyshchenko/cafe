@@ -18,7 +18,7 @@ public class CafeMyBatis {
 //        SqlSessionFactory sessionFactory = factory.getFactory();
 //        SqlSession session = sessionFactory.openSession();
 //        ICafeDao cafeMapper = session.getMapper(ICafeDao.class);
-//        List<CafeModel> cafeModel = cafeMapper.getCafeById(1);
+//        List<CafeModel> cafeModel = cafeMapper.getCafeById(4);
 //        session.close();
 //        LOGGER.info(cafeModel);
 
@@ -27,17 +27,17 @@ public class CafeMyBatis {
 //        SqlSessionFactory sessionFactory = factory.getFactory();
 //        SqlSession session = sessionFactory.openSession();
 //        ICafeDao cafeMapper = session.getMapper(ICafeDao.class);
-//        cafeMapper.deleteCafeById(2);
+//        cafeMapper.deleteCafeById(4);
 //        session.commit();
 //        LOGGER.info("Remove element successfully");
 //        session.close();
 
-        //// Create entity:
+       //  Create entity:
 //        MyBatisSQLFactory factory = MyBatisSQLFactory.newInstance("myBatisConfig/mybatis_config.xml");
 //        SqlSessionFactory sessionFactory = factory.getFactory();
 //        SqlSession session = sessionFactory.openSession();
 //        ICafeDao cafeMapper = session.getMapper(ICafeDao.class);
-//        CafeModel cafeModelSave = new CafeModel(2, "dwqq","dwqq","dwqq","dwqq");
+//        CafeModel cafeModelSave = new CafeModel(4, "Romans","rrdwqq","rrdwqq","rrdwqq");
 //        cafeMapper.createCafe(cafeModelSave);
 //        session.commit();
 //        LOGGER.info(cafeModelSave.toString());
@@ -47,8 +47,8 @@ public class CafeMyBatis {
 //        SqlSessionFactory sessionFactory = factory.getFactory();
 //        SqlSession session = sessionFactory.openSession();
 //        ICafeDao cafeMapper = session.getMapper(ICafeDao.class);
-//        List<CafeModel> cafeModelUpdate = cafeMapper.getCafeById(2);
-//        cafeModelUpdate.get(0).setName("Pizza");
+//        List<CafeModel> cafeModelUpdate = cafeMapper.getCafeById(4);
+//        cafeModelUpdate.get(0).setName("MamaMiya");
 //        cafeMapper.updateCafeMyBatis(cafeModelUpdate.get(0));
 //            session.commit();
 //        LOGGER.info(cafeModelUpdate.get(0).toString());
