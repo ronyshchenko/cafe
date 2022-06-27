@@ -14,8 +14,7 @@ class Factory {
             currency = new Euro();
         } else if (inputCur.equals("pound")) {
         currency = new Pound();
-    }
-
+        }
         return currency;
     }
 }
