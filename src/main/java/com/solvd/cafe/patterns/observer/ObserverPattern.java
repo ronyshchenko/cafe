@@ -15,7 +15,7 @@ public class ObserverPattern {
         void event(List<String> strings);
     }
 
-    static class Cafe {
+    static class University {
         private List<Visitor> visitors = new ArrayList<Visitor>();
         private List<String> students = new ArrayList<String>();
 
