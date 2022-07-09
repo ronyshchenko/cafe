@@ -14,6 +14,9 @@ public class CafeMyBatis {
     private static final Logger LOGGER = LogManager.getLogger(CafeMyBatis.class);
 
     public static void main(String[] args) {
+        LOGGER.debug("This is trace form Roma");
+        LOGGER.info("This is info form Roma");
+
 //        MyBatisSQLFactory factory = MyBatisSQLFactory.newInstance("myBatisConfig/mybatis_config.xml");
 //        SqlSessionFactory sessionFactory = factory.getFactory();
 //        SqlSession session = sessionFactory.openSession();

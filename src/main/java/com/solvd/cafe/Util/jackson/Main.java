@@ -13,12 +13,13 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         ObjectMapper om = new ObjectMapper();
-        File file = new File("src/main/resources/forWrite.json");
-        UserBean userBean = new UserBean(1, "Petr", "Petrenko");
+        File file = new File("src/main/resources/user.json");
+        User user = new User(18, "Petr");
 
         try {
             if (!file.exists())
-            om.writeValue(file, userBean);
+                file.createNewFile();
+            om.writeValue(file, user);
             LOGGER.info("created!");
         } catch (IOException e) {
             LOGGER.error(e);
@@ -27,8 +28,8 @@ public class Main {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            User user = mapper.readValue(new File("src/main/resources/user.json"), User.class);
-            LOGGER.info(user);
+            User user1 = mapper.readValue(new File("src/main/resources/user.json"), User.class);
+            LOGGER.info(user1);
         } catch (JsonGenerationException e) {
             e.printStackTrace();
         }
